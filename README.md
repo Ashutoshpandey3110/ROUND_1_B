@@ -1,7 +1,7 @@
-🧠 Persona-Driven Document Intelligence Engine
+**🧠 Persona-Driven Document Intelligence Engine**
 This project is a solution for the Adobe India Hackathon (Round 1B). It's an offline, Docker-based application that analyzes a collection of PDFs and extracts the most relevant sections based on a user's specific role and task.
 
-🚀 Our Approach
+**🚀 Our Approach**
 Our system uses a generalized, three-stage pipeline:
 
 Adaptive Deconstruction: The code first analyzes the structure of the PDFs to identify headings and group the content under them correctly.
@@ -21,46 +21,45 @@ Data Validation: pydantic
 
 Containerization: Docker
 
-📁 Project Structure
+**📁 Project Structure**
 FINAL_ROUND1B/
-│
 ├── Dockerfile
-├── README.md         (This file)
+├── README.md
 ├── requirements.txt
-│
 ├── input/
 │   ├── docs/
+│   │   └── ... (PDF files go here)
 │   └── challenge1b_input.json
-│
 ├── output/
-│
 └── src/
     ├── __init__.py
     ├── __main__.py
-    └── ... (other .py files)
+    ├── config.py
+    ├── data_models.py
+    ├── pdf_parser.py
+    ├── semantic_analyzer.py
+    └── utils.py
 
 ▶️ Execution Instructions
 The project is designed to be run with Docker.
 
-**Step 1: Set Up Input Files**
+Important First Step: Set Up Input Files
+You must do this before building the Docker image.
 
-Make sure your input folder is structured correctly:
+Create an input folder in your project directory.
 
-FINAL_ROUND1B/
-└── input/
-    ├── docs/
-    │   ├── pdf_file_1.pdf
-    │   └── pdf_file_2.pdf
-    └── challenge1b_input.json
+Inside input, create a docs folder.
 
-****Step 2: Build the Docker Image**
+Place all your PDF files inside the input/docs/ folder.
 
-In your terminal, from the FINAL_ROUND1B directory, run:
+Place your challenge1b_input.json file directly inside the input/ folder.
+
+**Step 2: Build the Docker Image**
+Once your input files are in place, open your terminal in the FINAL_ROUND1B directory and run:
 
 docker build -t adobe-hackathon .
 
 **Step 3: Run the Container**
-
 This command runs the analysis completely offline:
 
 docker run --rm -v "$(pwd)/input:/app/input" -v "$(pwd)/output:/app/output" adobe-hackathon
