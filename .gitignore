@@ -13,8 +13,6 @@ venv/
 docker-compose.yml
 
 # Project Specific
-/input/
-/output/
 /models/
 
 # VS Code
