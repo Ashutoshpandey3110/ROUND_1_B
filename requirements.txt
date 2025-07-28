@@ -1,0 +1,15 @@
+# Core ML and NLP Libraries
+sentence-transformers
+torch
+transformers
+huggingface-hub
+
+# PDF Processing
+PyMuPDF
+
+# Data Validation and Handling
+pydantic
+
+# Standard utilities
+numpy
+tqdm
